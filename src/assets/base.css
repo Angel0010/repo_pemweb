@@ -1,0 +1,47 @@
+#app {
+  max-width: 300px;
+  margin: 0 auto;
+  border: 1px solid #6dd815;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(102, 232, 26, 0.1);
+  text-align: center;
+  background-color: #f3f3f3; /* Tambahkan latar belakang */
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.button-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  background-color: #fff; /* Tambahkan latar belakang */
+  border-radius: 5px;
+  padding: 10px; /* Ruang di sekitar tombol */
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #6dd815;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #6dd815; /* Tambahkan latar belakang tombol */
+  color: #fff; /* Warna teks tombol */
+  transition: background-color 0.2s; /* Efek transisi saat menghover tombol */
+
+  /* Efek saat menghover tombol */
+  &:hover {
+    background-color: #4baa0e;
+  }
+}
+
+#result {
+  font-size: 24px;
+  margin-top: 10px;
+}
