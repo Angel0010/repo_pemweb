@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+<body>
+    <h1>Kalkulator Sederhana</h1>
+    
+    <input type="text" id="num1"><br><br>
+    
+    <select id="operator">
+        <option value="tambah">+</option>
+        <option value="kurang">-</option>
+        <option value="kali">*</option>
+        <option value="bagi">/</option>
+    </select><br><br>
+    
+    <input type="text" id="num2"><br><br>
+    
+    <button onclick="hitung()">Hitung</button><br><br>
+    
+    <p>Hasil: <span id="hasil"></span></p>
+    
+    <script>
+        function hitung() {
+
+            var angka1 = parseFloat(document.getElementById("num1").value);
+            var angka2 = parseFloat(document.getElementById("num2").value);
+            var operasi = document.getElementById("operator").value;
+            
+            var hasil;
+            switch (operasi) {
+                case "tambah":
+                    hasil = angka1 + angka2;
+                    break;
+                case "kurang":
+                    hasil = angka1 - angka2;
+                    break;
+                case "kali":
+                    hasil = angka1 * angka2;
+                    break;
+                case "bagi":
+                    hasil = angka1 / angka2;
+                    break;
+                default:
+                    hasil = "Operasi tidak valid";
+            }
+            
+            document.getElementById("hasil").textContent = hasil;
+        }
+    </script>
+</body>
+</html>
