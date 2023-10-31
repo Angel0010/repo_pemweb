@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>Weather App</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="city">Enter City:</label>
+            <input type="text" class="form-control" id="city" />
+          </div>
+          <button class="btn btn-primary" onclick="getWeather()">
+            Get Weather
+          </button>
+        </div>
+        <div class="col-md-6">
+          <h3>Weather Information</h3>
+          <p>City: <span id="cityName"></span></p>
+          <p>Temperature: <span id="temperature"></span>&deg;C</p>
+          <p>Weather: <span id="weather"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      function getWeather() {
+        const city = document.getElementById("city").value;
+        const apiKey = "7eb74ce243fe336a4568d7a755934e7b"; // Ganti dengan API Key cuaca Anda
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const cityName = data.name;
+            const temperature = data.main.temp;
+            const weatherDescription = data.weather[0].description;
+
+            document.getElementById("cityName").textContent = cityName;
+            document.getElementById("temperature").textContent = temperature;
+            document.getElementById("weather").textContent = weatherDescription;
+          })
+          .catch((error) => {
+            console.error("Error fetching weather data:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
